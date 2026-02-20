@@ -1,7 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit";
+import {messagesReducer} from "../../src/features/Messages/MessagesSlice";
 
 export const store = configureStore({
-    reducer: {}
+    reducer: {
+        messages: messagesReducer
+    }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

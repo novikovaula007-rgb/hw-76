@@ -17,10 +17,10 @@ messagesRouter.get('/', async (req: Request, res: Response) => {
         }
 
         const filteredMessages = messages.filter(m => new Date(m.datetime) > date);
-        return res.send(filteredMessages.slice(-30));
+        return res.send(filteredMessages);
     }
 
-    return res.send(messages);
+    return res.send(messages.slice(-30));
 });
 
 messagesRouter.post('/', async (req: Request, res: Response) => {
