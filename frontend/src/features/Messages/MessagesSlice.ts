@@ -69,6 +69,8 @@ const messagesSlice = createSlice({
 })
 
 export const selectAllMessages = (state: RootState) => state.messages.messages;
-export const selectMessagesLoading = (state: RootState) => state.messages.loading;
+export const selectPostMessageLoading = (state: RootState) => state.messages.loading.postNewMessage;
+export const selectFetchMessagesLoading = (state: RootState) => state.messages.loading.fetchAllMessages;
+
 
 export const messagesReducer = messagesSlice.reducer;
