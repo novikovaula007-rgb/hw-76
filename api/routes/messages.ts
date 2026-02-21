@@ -19,7 +19,7 @@ messagesRouter.get('/', async (req: Request, res: Response) => {
         const filteredMessages = messages.filter(m => new Date(m.datetime) > date);
         return res.send(filteredMessages);
     }
-
+    messages.sort((a, b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime());
     return res.send(messages.slice(-30));
 });
 

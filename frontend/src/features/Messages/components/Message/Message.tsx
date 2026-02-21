@@ -8,10 +8,31 @@ interface Props {
 }
 
 const Message: React.FC<Props> = ({message}) => {
+
+    const dateSetFormat = () => {
+        const date = dayjs(message.datetime);
+        const dateNow = dayjs();
+
+        if (date.isSame(dateNow, 'day')) {
+            return date.format('HH:mm');
+        }
+
+        if (dateNow.subtract(1, 'day').isSame(date, 'day')) {
+            return `Yesterday ${date.format('HH:mm')}`;
+        }
+
+        if (!date.isSame(dateNow, 'year')) {
+            return date.format('DD.MM.YYYY HH:mm');
+        }
+
+        return date.format('DD.MM HH:mm');
+    }
+
     return (
         <Box>
             <Typography
-                sx={{marginBottom: '0',
+                sx={{
+                    marginBottom: '0',
                     marginLeft: 1,
                     fontWeight: 'bold',
                     color: 'text.secondary',
@@ -42,7 +63,7 @@ const Message: React.FC<Props> = ({message}) => {
                         fontSize: '0.7rem',
                         opacity: 0.8,
                     }}
-                >{dayjs(message.datetime).format('DD.MM.YYYY (dddd) - HH:mm')}</Typography>
+                >{dateSetFormat()}</Typography>
             </Box>
         </Box>
     );
