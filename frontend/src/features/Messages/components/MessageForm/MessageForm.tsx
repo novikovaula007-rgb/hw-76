@@ -43,6 +43,7 @@ const MessageForm = () => {
                     placeholder="Enter your name"
                     sx={{width: '250px',
                         display: 'block',
+                        marginBottom: '10px'
                     }}
                     value={message.author}
                     disabled={messageSelectLoading}
@@ -52,7 +53,7 @@ const MessageForm = () => {
                     id="message"
                     name="message"
                     multiline
-                    rows={4}
+                    rows={2}
                     placeholder="Enter your message"
                     sx={{width: '500px'}}
                     value={message.message}

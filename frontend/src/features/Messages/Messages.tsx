@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "../../../app/store/hooks.ts";
 import {fetchAllMessages, selectAllMessages} from "./MessagesSlice.ts";
 import Message from "./components/Message/Message.tsx";
 import MessageForm from "./components/MessageForm/MessageForm.tsx";
+import "./Messages.css";
 
 const Messages = () => {
         const dispatch = useAppDispatch();
@@ -44,10 +45,9 @@ const Messages = () => {
         }, [dispatch, lastTime]);
 
         return (
-            <>
+            <Box className='chatWrapper'>
                 <Box
                     sx={{
-                        width: '500px',
                         height: '400px',
                         border: '1px solid',
                         borderColor: 'divider',
@@ -56,15 +56,16 @@ const Messages = () => {
                         display: 'flex',
                         flexDirection: 'column-reverse',
                         overflowY: 'scroll'
-                }}
+                    }}
                     id='chat'
+                    className='chat'
                 >
                     {messages.map(message => {
                         return <Message key={message.id} message={message}/>
                     })}
                 </Box>
                 <MessageForm/>
-            </>
+            </Box>
         );
     }
 ;
