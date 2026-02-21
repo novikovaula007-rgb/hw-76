@@ -13,7 +13,7 @@ messagesRouter.get('/', async (req: Request, res: Response) => {
         const date = new Date(queryDate as string);
 
         if (isNaN(date.getDate())) {
-            return res.status(400).send({ error: "Data is incorrect" });
+            return res.status(400).send({error: "Data is incorrect"});
         }
 
         const filteredMessages = messages.filter(m => new Date(m.datetime) > date);

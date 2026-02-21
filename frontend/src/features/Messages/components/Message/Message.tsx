@@ -1,10 +1,10 @@
 import React from 'react';
 import {Box, Typography} from "@mui/material";
-import type {Message} from "../../../../types";
+import type {IMessage} from "../../../../types";
 import dayjs from "dayjs";
 
 interface Props {
-    message: Message;
+    message: IMessage;
 }
 
 const Message: React.FC<Props> = ({message}) => {

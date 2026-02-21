@@ -29,10 +29,8 @@ const MessageForm = () => {
             toast.error('Please enter a author, message fields');
         } else {
             await dispatch(sendMessage(message));
-            sendMessage({message: '', author: ''});
+            setMessage({message: '', author: ''});
         }
-
-        setMessage(prev => ({...prev, text: ''}));
     }
 
     return (
